@@ -29,11 +29,11 @@ int _erratoi(char *s)
 }
 
 /**
- * print_error-This prints an error message.
- * @info:This is the parameter that returns the information structure
- * @estr:This string contains a specific error type
- * Returns:0 if the are no numbers on the string,
- * converted no.1and -1 if there is an error
+ * print_error - prints an error message
+ * @info: the parameter & return info struct
+ * @estr: string containing specified error type
+ * Return: 0 if no numbers in string, converted number otherwise
+ *        -1 on error
  */
 void print_error(info_t *info, char *estr)
 {
@@ -95,32 +95,6 @@ int print_d(int input, int fd)
  */
 char *convert_number(long int num, int base, int flags)
 {
-
-static char *array;
-static char buffer[50];
-char sign = 0;
-char *ptr;
-unsigned long n = num;
-
-if (!(flags & CONVERT_UNSIGNED) && num < 0)
-{
-n = -num;
-sign = '-';
-
-}
-array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-ptr = &buffer[49];
-*ptr = '\0';
-
-do {
-*--ptr = array[n % base];
-n /= base;
-} while (n != 0);
-
-if (sign)
-*--ptr = sign;
-return (ptr);
-=======
 	static char *array;
 	static char buffer[50];
 	char sign = 0;
@@ -145,12 +119,12 @@ return (ptr);
 	if (sign)
 		*--ptr = sign;
 	return (ptr);
-
 }
 
 /**
  * remove_comments - function replaces first instance of '#' with '\0'
  * @buf: address of the string to modify
+ *
  * Return: Always 0;
  */
 void remove_comments(char *buf)
