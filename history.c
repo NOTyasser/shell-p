@@ -65,7 +65,7 @@ int read_history(info_t *info)
 	ssize_t fd, rdlen, fsize = 0;
 	struct stat st;
 	char *buf = NULL, *filename = get_history_file(info);
-	
+
 	if (!filename)
 		return (0);
 
@@ -93,7 +93,7 @@ int read_history(info_t *info)
 			last = i + 1;
 		}
 	if (last != i)
-		build_history_list(info , buf + last, linecount++);
+		build_history_list(info, buf + last, linecount++);
 	free(buf);
 	info->histcount = linecount;
 	while (info->histcount-- >= HIST_MAX)
@@ -115,7 +115,7 @@ int build_history_list(info_t *info, char *buf, int linecount)
 	list_t *node = NULL;
 
 	if (info->history)
-		node = info->history;
+	node = info->history;
 	add_node_end(&node, buf, linecount);
 
 	if (!info->history)
