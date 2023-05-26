@@ -33,7 +33,7 @@ return (result);
 /**
  * print_error-This prints an error message.
  * @info:This is the parameter that returns the information structure
- * @str:This string contains a specific error type
+ * @estr:This string contains a specific error type
  * Returns:0 if the are no numbers on the string,
  * converted no.1and -1 if there is an error
  */
@@ -115,7 +115,7 @@ array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 ptr = &buffer[49];
 *ptr = '\0';
 
-do{
+do {
 *--ptr = array[n % base];
 n /= base;
 } while (n != 0);

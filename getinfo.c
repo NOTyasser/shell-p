@@ -4,7 +4,6 @@
  * clear_info-It initializes the info_t structure.
  * @info:Addresses the structure.
  */
-
 void clear_info(info_t *info)
 {
 info->arg = NULL;
@@ -34,8 +33,8 @@ info->argv[0] = _strdup(info->arg);
 info->argv[1] = NULL;
 }
 }
-for (i = 0; info->argv && info->argv[i]; i++)
-			;
+for (i = 0; info->argv && info->argv[i]; i++);
+			
 info->argc = i;
 
 replace_alias(info);
@@ -47,7 +46,6 @@ replace_vars(info);
  * @info:Addresses the structure.
  * @all:It is true if it frees all fields.
  */
-
 void free_info(info_t *info, int all)
 {
 ffree(info->argv);

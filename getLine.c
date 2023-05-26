@@ -7,7 +7,7 @@
  * @len:Addresses the len variables.
  * Returns:Bytes read.
  */
- 
+
 ssize_t input_buf(info_t *info, char **buf, size_t *len)
 {
 ssize_t r = 0;
